@@ -2,10 +2,11 @@ import de.re.easymodbus.exceptions.ModbusException;
 import de.re.easymodbus.modbusclient.ModbusClient;
 
 import java.io.IOException;
-import java.util.Arrays;
+
+import java.util.concurrent.TimeUnit;
 
 public class Main {
-    public static void main(String[] args) throws IOException, ModbusException {
+    public static void main(String[] args) throws IOException, ModbusException, InterruptedException {
         ModbusClient modbusClient = new ModbusClient("192.168.0.218", 502);
         modbusClient.Connect();
 
@@ -37,6 +38,7 @@ public class Main {
 
             Writer.write(ModbusClient.ConvertRegistersToFloat(modbusClient.ReadInputRegisters(1572, 2)));
         i++;
+            TimeUnit.SECONDS.sleep(1);
         }
 
     }
