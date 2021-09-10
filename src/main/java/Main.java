@@ -31,9 +31,13 @@ public class Main {
 
 
         //Read Float Value from Input Reg
-       //System.out.println(ModbusClient.ConvertRegistersToFloat(modbusClient.ReadInputRegisters(1572, 2))); // ТОС
+       System.out.println(ModbusClient.ConvertRegistersToFloat(modbusClient.ReadInputRegisters(1572, 2))); // ТОС
 
+        for (int i = 0; i < 24; i++) {
 
+            Writer.write(ModbusClient.ConvertRegistersToFloat(modbusClient.ReadInputRegisters(1572, 2)));
+        i++;
+        }
 
     }
 }
