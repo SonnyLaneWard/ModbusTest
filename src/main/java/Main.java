@@ -1,16 +1,19 @@
 import de.re.easymodbus.exceptions.ModbusException;
 import de.re.easymodbus.modbusclient.ModbusClient;
-
 import java.io.IOException;
-
 import java.util.concurrent.TimeUnit;
+
 
 public class Main {
     public static void main(String[] args) throws IOException, ModbusException, InterruptedException {
         ModbusClient modbusClient = new ModbusClient("192.168.0.218", 502);
         modbusClient.Connect();
 
+
+
+
         // Writing Single Coil
+
 
         //modbusClient.WriteSingleCoil(1024,true); //Stop
         //modbusClient.WriteSingleCoil(1024,false);
@@ -32,14 +35,17 @@ public class Main {
 
 
         //Read Float Value from Input Reg
-       System.out.println(ModbusClient.ConvertRegistersToFloat(modbusClient.ReadInputRegisters(1572, 2))); // ТОС
+      // System.out.println(ModbusClient.ConvertRegistersToFloat(modbusClient.ReadInputRegisters(1572, 2))); // ТОС
 
-        for (int i = 0; i < 24; i++) {
+       // for (int i = 0; i < 24; i++) {
 
-            Writer.write(ModbusClient.ConvertRegistersToFloat(modbusClient.ReadInputRegisters(1572, 2)));
-        i++;
-            TimeUnit.SECONDS.sleep(1);
-        }
+           // Writer.write(ModbusClient.ConvertRegistersToFloat(modbusClient.ReadInputRegisters(1572, 2)));
+       // i++;
+            //TimeUnit.SECONDS.sleep(1);
+       // }
+
+
+
 
     }
 }
